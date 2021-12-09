@@ -15,7 +15,7 @@ def mp_elementwise_div(a, b):
     return new
 def mp_elementwise_mul(a, b):
     if not (a.rows == b.rows and a.cols == b.cols):
-        raise ValueError("incompatible dimensions for elementwise division")
+        raise ValueError("incompatible dimensions for elementwise multiplication")
     new = a.ctx.matrix(a.rows, a.cols)
     for i in range(a.rows):
         for j in range(a.cols):
@@ -26,7 +26,7 @@ def float2mpf_1D(array):
         
 
 
-# Class for gaussian processes
+# Class for gaussian process regression
 class GP:
     def __init__(self, kernel, hypers_init, hypers_scale=None, hypers_prior_mu=None, hypers_prior_sigma=None, 
                        kernel_grad=None, sigma_noise=None, verbose=0):
